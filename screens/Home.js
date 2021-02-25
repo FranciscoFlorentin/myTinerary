@@ -1,15 +1,16 @@
 import React from "react";
-import { Text, View } from "react-native";
+import Header from "../components/Header";
+import Section from "../components/Section";
+import {View} from "react-native";
 import Styles from "../components/Styles";
 
-const Home=()=>{
+const Home=({navigation})=>{
     return(
-        <View style={Styles.mainView}>
-            <View >
-                <Text style={Styles.textTitle}>Hola</Text>
-            </View>
+        <View style={Styles.mainContainer}>
+            <Header navigation={navigation}/>
+            <Section/>
+            <View style={Styles.footerContainer}></View>
         </View>
     )
 }
-
 export default Home;
