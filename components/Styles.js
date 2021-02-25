@@ -27,7 +27,8 @@ const Styles={
         width:"50%"
     },
     perfilHeader:{
-        width:"25%"
+        width:"25%",
+        height: "100%"
     },
     perfilBorderRadius:{
         borderWidth: 2,
@@ -54,7 +55,32 @@ const Styles={
     },
     titleText:{
         fontSize:23
-    }
+    },
+    inputText:{
+        borderWidth:1,
+        fontSize: 30,
+        height: "30%",
+        width: "90%",
+        textAlign:"center"
+    },
+    // CITIES
+    citiesList1:{
+        borderWidth:1,
+        padding: 2,
+        height: 90,
+        flexDirection:"row"
+    },
+    citiesList2:{ 
+        borderWidth:1,
+        justifyContent:"center",
+        alignItems:"center"
+    },
+    image: {
+        flex: 1,
+        width:"100%",
+        resizeMode: "cover",
+        justifyContent: "center"
+      },
 }
 
 export default Styles;
