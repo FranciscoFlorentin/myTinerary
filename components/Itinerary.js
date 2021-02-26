@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const Itineraries=()=>{
+const Itinerary=()=>{
     return(
         <View>
-            <Text>Itineraries</Text>
+            <Text>Itinerary</Text>
         </View>
     )
 }
 
-export default Itineraries;
+export default Itinerary;

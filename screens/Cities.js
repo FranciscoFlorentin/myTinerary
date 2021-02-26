@@ -2,11 +2,10 @@ import React, { useState, useEffect} from "react";
 import {Image, ImageBackground, KeyboardAvoidingView, Text, View } from "react-native";
 import Styles from "../components/Styles";
 import Header from "../components/Header";
-import { FlatList, TextInput } from "react-native-gesture-handler";
+import { FlatList, TextInput, TouchableHighlight } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import cityActions from "../redux/actions/citiyActions";
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Loader from "../components/Loader";
 
 const Cities=({navigation,getFilterCities,filteredCities})=>{
@@ -15,7 +14,7 @@ const Cities=({navigation,getFilterCities,filteredCities})=>{
     
     useEffect(() => {
         getFilterCities(filterValue)
-        .then(response=>setLoaderStatus(false))
+        .then(response=>{if(response){setLoaderStatus(false)}})
     }, [filterValue])
     
     if(loaderStatus){return <Loader/>}
@@ -43,7 +42,9 @@ const Cities=({navigation,getFilterCities,filteredCities})=>{
                             <Text>{item.cityName}</Text>
                         </View>
                         <View style={[Styles.citiesList2,{width:"20%"}]}>
-                            <AntDesign name="right" color={"black"} size={40} />
+                            <TouchableHighlight onPress={()=>navigation.navigate("itinerary")}>
+                                <AntDesign name="right" color={"black"} size={40} />
+                            </TouchableHighlight>
                         </View>
                     </View>
                 )}
