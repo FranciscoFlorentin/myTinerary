@@ -57,7 +57,9 @@ const Styles={
         fontSize:23
     },
     inputText:{
-        borderWidth:1,
+        borderWidth:1.5,
+        borderColor: "white",
+        backgroundColor:"transparent",
         fontSize: 30,
         height: "30%",
         width: "90%",
@@ -78,9 +80,10 @@ const Styles={
     image: {
         flex: 1,
         width:"100%",
-        resizeMode: "cover",
-        justifyContent: "center"
-      },
+        justifyContent: "center",
+        alignItems: "center",
+        resizeMode: "cover"
+    },
 }
 
 export default Styles;
