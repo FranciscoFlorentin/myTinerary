@@ -70,7 +70,7 @@ const Styles={
         height: 90,
         flexDirection:"row"
     },
-    citiesList2:{ 
+    citiesList2:{
         borderWidth:1,
         justifyContent:"center",
         alignItems:"center"

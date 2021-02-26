@@ -13,7 +13,7 @@ const Header=({navigation})=>{
                 </TouchableHighlight>
             </View>
             <View style={[Styles.titleHeader,Styles.centeredBox]}>
-                <Text style={Styles.titleText}>MyTinerary</Text>
+                <Text style={Styles.titleText}>MyTinerary1</Text>
             </View>
             <View style={[Styles.perfilHeader,Styles.centeredBox]}>
                 <View style={[Styles.perfilBorderRadius,Styles.centeredBox,{width:"80%",height:"90%"}]}>

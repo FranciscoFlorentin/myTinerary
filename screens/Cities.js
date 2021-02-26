@@ -16,8 +16,10 @@ const Cities=({navigation,getFilterCities,filteredCities,getCities})=>{
     }, [filterValue])
 
     return(
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null} style={{ flex: 1 }} 
-        keyboardVerticalOffset={32}>
+        <KeyboardAvoidingView 
+            behavior={Platform.OS === "ios" ? "padding" : "height"} 
+            style={{ flex: 1 }} 
+            keyboardVerticalOffset={20}>
             <View style={Styles.mainContainer}>
                 <Header navigation={navigation}/>
                 <View style={[Styles.centeredBox,{width:"100%", flex:0.3, backgroundColor:"yellow",borderWidth:1}]}>
@@ -34,7 +36,7 @@ const Cities=({navigation,getFilterCities,filteredCities,getCities})=>{
                                 <Image source={require(`../assets/1.jpg`)} style={Styles.image}></Image>
                             </View>
                             <View style={ [Styles.citiesList2,{width:"50%"}]}>
-                                <Text>{item.cityName}</Text>
+                                <Text style={{fontSize:22}}>{item.cityName}</Text>
                             </View>
                             <View style={[Styles.citiesList2,{width:"20%"}]}>
                                 <AntDesign name="right" color={"black"} size={40} />
