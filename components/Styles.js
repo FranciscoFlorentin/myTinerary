@@ -84,6 +84,14 @@ const Styles={
         alignItems: "center",
         resizeMode: "cover"
     },
+    // SIGNUP 
+    inputNewUser:{
+        borderWidth:1,
+        width: "80%"
+    },
+    inputsScroll:{
+        width:"100%",
+    }
 }
 
 export default Styles;

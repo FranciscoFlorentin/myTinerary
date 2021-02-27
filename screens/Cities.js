@@ -8,15 +8,17 @@ import cityActions from "../redux/actions/citiyActions";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Loader from "../components/Loader";
 
-const Cities=({navigation,getFilterCities,filteredCities})=>{
+const Cities=({route,navigation,getFilterCities,filteredCities})=>{
     const [filterValue,setFilterValue]=useState("");
     const [loaderStatus,setLoaderStatus]=useState(true);
-    
+    useEffect(() => {
+        if(!filteredCities){getCities()}
+    }, [])
     useEffect(() => {
         getFilterCities(filterValue)
         .then(response=>{if(response){setLoaderStatus(false)}})
     }, [filterValue])
-    
+    if(!filteredCities){<Loader/>}
     if(loaderStatus){return <Loader/>}
 
     return(
@@ -42,7 +44,7 @@ const Cities=({navigation,getFilterCities,filteredCities})=>{
                             <Text>{item.cityName}</Text>
                         </View>
                         <View style={[Styles.citiesList2,{width:"20%"}]}>
-                            <TouchableHighlight onPress={()=>navigation.navigate("itinerary")}>
+                            <TouchableHighlight onPress={()=>navigation.navigate("itineraries",{_id: item._id})}>
                                 <AntDesign name="right" color={"black"} size={40} />
                             </TouchableHighlight>
                         </View>
