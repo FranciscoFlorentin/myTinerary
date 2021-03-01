@@ -8,7 +8,7 @@ const Home=({navigation})=>{
     return(
         <View style={Styles.mainContainer}>
             <Header navigation={navigation}/>
-            <Section/>
+            <Section navigation={navigation}/>
             <View style={Styles.footerContainer}></View>
         </View>
     )

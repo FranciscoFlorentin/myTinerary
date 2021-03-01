@@ -20,6 +20,7 @@ const Stack= createStackNavigator();
 const Navigator = ({loggedUser,logInLS})=>{
     const CitiesNavigator=()=>(
       <Stack.Navigator screenOptions={{headerShown:false }}>
+        <Stack.Screen name="Home" component={Home}/>
         <Stack.Screen name="cities" component={Cities}/>
         <Stack.Screen name="itineraries" component={Itineraries}/>
       </Stack.Navigator>
@@ -33,9 +34,8 @@ const Navigator = ({loggedUser,logInLS})=>{
     }
     return(
         <NavigationContainer styles={{backgroundColor:"black"}} screenOptions={{headerShown:false }}>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={Home}/>
-          <Drawer.Screen name="Cities" children={CitiesNavigator}/>
+        <Drawer.Navigator >
+          <Drawer.Screen name="Home"  children={CitiesNavigator}/>
           {!loggedUser && <>
           <Drawer.Screen name="SignIn" component={SignIn}/>
           <Drawer.Screen name="SignUp" component={SignUp}/>

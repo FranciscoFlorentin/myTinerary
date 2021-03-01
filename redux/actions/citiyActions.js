@@ -4,7 +4,11 @@ const cityActions ={
         return async (dispatch,getState)=>{
             fetch("https://mytinerary-florentin.herokuapp.com/api/cities")
             .then((response)=>response.json())
-            .then(data=>dispatch({type: "ALL_CITIES",payload: data.response}))
+            .then(data=>{
+                dispatch({type: "ALL_CITIES",payload: data.response})
+                return data.response
+            
+            })
             .catch(error=>console.error(error))
         }
     },

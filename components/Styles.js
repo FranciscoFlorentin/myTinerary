@@ -7,16 +7,13 @@ const Styles={
         paddingTop: 30,
         paddingBottom:10,
         paddingLeft:5,
-        borderWidth:4,
         paddingRight:5,
         marginTop:10
     },
     // HEADER
     headerContainer:{
         flex: 0.1,
-        backgroundColor: "#16c79a",
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
+        backgroundColor: "#00BFFF",
         flexDirection: "row",
         justifyContent: "space-around"
     },
@@ -31,16 +28,11 @@ const Styles={
         height: "100%"
     },
     perfilBorderRadius:{
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: "black",
         borderRadius: 30
     },
-    // SECTION
-    sectionContainer:{
-        flex: 1,
-        backgroundColor: "beige",
-        borderWidth: 1,
-    },
+    
 
     // FOOTER
    
@@ -67,13 +59,11 @@ const Styles={
     },
     // CITIES
     citiesList1:{
-        borderWidth:1,
         padding: 2,
         height: 90,
         flexDirection:"row"
     },
     citiesList2:{
-        borderWidth:1,
         justifyContent:"center",
         alignItems:"center"
     },
@@ -87,7 +77,11 @@ const Styles={
     // SIGNUP 
     inputNewUser:{
         borderWidth:1,
-        width: "80%"
+        width: "80%",
+        marginTop:15,
+        backgroundColor:"#F0F8FF",
+        textAlign:"center",
+        textAlignVertical:"center"
     },
     inputsScroll:{
         width:"100%",
@@ -95,7 +89,7 @@ const Styles={
     // Itineraries
     itineraryBox:{
         borderWidth:1,
-        height:'43%'
+        flex:0.33
     }
 }
 

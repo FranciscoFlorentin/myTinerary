@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { ToastAndroid } from "react-native";
 const userActions={
@@ -9,6 +10,7 @@ const userActions={
             }
             else {
                 dispatch({type:"LOG_IN", payload: response.data})
+                return response.data
             }
         }
     },
@@ -40,7 +42,7 @@ const userActions={
             }catch(error){
                 if(error.response.status===401){
                     alert("Access denied")
-                    localStorage.clear()
+                    AsyncStorage.clear()
                 }
             }
         }
