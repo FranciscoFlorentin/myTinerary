@@ -2,9 +2,11 @@ import React from "react";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import Styles from "./Styles";
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import { Text, View } from "react-native";
+import { Image, Text, ToastAndroid, View } from "react-native";
+import { connect } from "react-redux";
+import userActions from "../redux/actions/userActions";
 
-const Header=({navigation})=>{
+const Header=({navigation,loggedUser,logOut})=>{
     return(
         <View style={Styles.headerContainer}>
             <View style={[Styles.navHeader,Styles.centeredBox]}>
@@ -13,16 +15,28 @@ const Header=({navigation})=>{
                 </TouchableHighlight>
             </View>
             <View style={[Styles.titleHeader,Styles.centeredBox]}>
-                <Text style={Styles.titleText}>MyTinerary1</Text>
+                <Text style={Styles.titleText}>MyTinerary</Text>
             </View>
             <View style={[Styles.perfilHeader,Styles.centeredBox]}>
-                <View style={[Styles.perfilBorderRadius,Styles.centeredBox,{width:"80%",height:"90%"}]}>
-                    <TouchableHighlight onPress={()=> navigation.navigate('Cities')} underlayColor="none" >
-                        <SimpleLineIcons name="user" color={"black"} size={40} />
-                    </TouchableHighlight>
+                <View style={[Styles.perfilBorderRadius,Styles.centeredBox,{width:"80%",height:"50%"}]}>
+                    {loggedUser 
+                    ?<TouchableHighlight onPress={()=> logOut()} underlayColor="none" >
+                        <Text>Logout</Text>
+                      </TouchableHighlight> 
+                    :<TouchableHighlight onPress={()=> navigation.navigate("SignIn")} underlayColor="none" >
+                        <Text>Login</Text>
+                     </TouchableHighlight>}    
                 </View>
             </View>
         </View>
     )
 }
-export default Header;
+const mapStateToProps= state=>{
+    return {
+        loggedUser:state.userReducer.loggedUser
+    }
+}
+const mapDispatchToProps={
+    logOut:userActions.logOut
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

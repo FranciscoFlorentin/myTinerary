@@ -1,21 +1,28 @@
 import axios from "axios";
+import { ToastAndroid } from "react-native";
 const userActions={
     userRegister:(newUser)=>{
         return async (dispatch,getState)=>{
             const response=await axios.post("https://mytinerary-florentin.herokuapp.com/api/user/register",newUser)
-            if(!response.data.sucess){
+            if(response && !response.data.sucess){
                 return response.data
             }
-            dispatch({type:"LOG_IN", payload: response.data})
+            else {
+                dispatch({type:"LOG_IN", payload: response.data})
+            }
         }
     },
     logIn:(userRegistred)=>{
         return async (dispatch,getState)=>{
             const response = await axios.post("https://mytinerary-florentin.herokuapp.com/api/user/login",userRegistred)
-            if(response && !response.data.sucess){
+            if(response && response.data.sucess){
+                dispatch({type:"LOG_IN",payload:response.data})
+                return response.data
+            }
+            else {
                 return response.data
             }   
-            dispatch({type:"LOG_IN",payload:response.data})}  
+        }  
     },
     logInLS:(token)=>{
         return async (dispatch,getState)=>{
@@ -28,6 +35,7 @@ const userActions={
                     dispatch({type:"LOG_IN", payload: {
                         response:{...response.data.response}
                     }})
+                    return response.data.response
                 }
             }catch(error){
                 if(error.response.status===401){
@@ -39,6 +47,8 @@ const userActions={
     },
     logOut:()=>{
         return (dispatch, getState)=>{
+            
+            {ToastAndroid.show(`Goodbye ${getState().userReducer.loggedUser.name}`,ToastAndroid.LONG)}
             dispatch({type:"LOG_OUT"})
         }
     }

@@ -8,7 +8,7 @@ import cityActions from "../redux/actions/citiyActions";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Loader from "../components/Loader";
 
-const Cities=({route,navigation,getFilterCities,filteredCities})=>{
+const Cities=({navigation,getFilterCities,filteredCities})=>{
     const [filterValue,setFilterValue]=useState("");
     const [loaderStatus,setLoaderStatus]=useState(true);
     useEffect(() => {
@@ -18,7 +18,6 @@ const Cities=({route,navigation,getFilterCities,filteredCities})=>{
         getFilterCities(filterValue)
         .then(response=>{if(response){setLoaderStatus(false)}})
     }, [filterValue])
-    if(!filteredCities){<Loader/>}
     if(loaderStatus){return <Loader/>}
 
     return(

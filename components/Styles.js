@@ -91,6 +91,11 @@ const Styles={
     },
     inputsScroll:{
         width:"100%",
+    },
+    // Itineraries
+    itineraryBox:{
+        borderWidth:1,
+        height:'43%'
     }
 }
 
