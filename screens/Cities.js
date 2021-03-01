@@ -12,7 +12,8 @@ const Cities=({navigation,getFilterCities,filteredCities})=>{
     const [filterValue,setFilterValue]=useState("");
     const [loaderStatus,setLoaderStatus]=useState(true);
     useEffect(() => {
-        if(!filteredCities){getCities()}
+        if(!filteredCities){
+            getCities().then(response=>setLoaderStatus(false))}
     }, [])
     useEffect(() => {
         getFilterCities(filterValue)

@@ -22,8 +22,7 @@ const SignUp=({navigation,userRegister})=>{
     const[errors,setErrors]=useState([]);
     const [newUser,setNewUser] = useState({firstName:'',lastName:'',userName:'',password:'',userPic:'',countryName:'',countryPic:'',googleUser:false})
     const sendNewUser= async (newUser) =>{
-        if(newUser.userName===""|| newUser.password==="" || newUser.firstName==="" 
-        || newUser.lastName==="" ){
+        if(newUser.userName===""|| newUser.password==="" || newUser.firstName==="" || newUser.lastName==="" ){
             setErrors([`Fill all the fields`])
             return false;
         }
@@ -36,9 +35,7 @@ const SignUp=({navigation,userRegister})=>{
             setErrors([response.errors])
             return false;
         }else{
-           console.log(response)
             ToastAndroid.show(`Welcome ${response.response.name}`,ToastAndroid.LONG)
-        
         }
     }
     if(countries.length===0){return <Loader/>}
@@ -50,7 +47,7 @@ const SignUp=({navigation,userRegister})=>{
                 <Header navigation={navigation}/>
                 <View style={[Styles.centeredBox,{width:"100%", flex:0.9,borderWidth:1,justifyContent:"flex-start"}]}>
                     <View style={{width:"80%",height:"20%",justifyContent:"flex-end"}}>
-                        {errors && errors.map(error=>(<Text style={{backgroundColor:"white", color:"red",fontSize:20}}>* {error}</Text>))}
+                        {errors && errors.map(error=>(<Text key={error} style={{backgroundColor:"white", color:"red",fontSize:20}}>* {error}</Text>))}
                     </View>
                 {/* <ScrollView style={Styles.inputsScroll}> */}
                     <TextInput placeholderTextColor="black" placeholder="firstname" onChangeText={(firstName)=>setNewUser({...newUser,firstName})} style={Styles.inputNewUser} value={newUser.firstName} />
